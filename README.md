@@ -77,7 +77,7 @@ npm run test:browser
 
 ## 正式发行包
 
-`releases/rejs-1.0.0.zip` 解压后直接选择包含 manifest.json 的目录加载。SHA-256 见同目录校验文件。此发行包用于手动安装，未上传扩展商店。发布记录见 CHANGELOG.md。
+从 [GitHub Releases](https://github.com/wuyanghai/ReJS/releases/latest) 下载 `rejs-1.0.0.zip`，解压后直接选择包含 manifest.json 的目录加载。SHA-256 校验文件位于同一 Release 的 Assets 中。此发行包用于手动安装，未上传扩展商店。发布记录见 CHANGELOG.md。
 
 重新打包：`npm run release`（Windows）。仅包含扩展文件、README、CHANGELOG 和 LICENSE，不包含 node_modules、研究源码和测试数据。
 
