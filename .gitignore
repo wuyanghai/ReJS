@@ -1,0 +1,10 @@
+node_modules/
+test-results/
+research/
+releases/
+*.zip
+tests/site-probe.mjs
+.env
+.env.*
+!.env.example
+*.log

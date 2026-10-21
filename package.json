@@ -1,0 +1,17 @@
+{
+  "name": "rejs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Project-based Chrome/Edge extension for URL matching and local JavaScript response replacement.",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/core.test.mjs tests/cdp.test.mjs tests/projects.test.mjs tests/logs.test.mjs",
+    "test:browser": "node --test tests/browser.test.mjs",
+    "release": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "ReJS · 正则响应替换",
+  "version": "1.0.0",
+  "minimum_chrome_version": "125",
+  "description": "按 URL 正则将当前标签页的 JS 响应替换为导入的本地内容。",
+  "permissions": ["storage", "activeTab", "debugger", "declarativeNetRequest", "webRequest"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_scripts": [{ "matches": ["http://*/*", "https://*/*"], "js": ["diagnostics.js"], "run_at": "document_start", "all_frames": true }],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_popup": "popup.html" },
+  "options_page": "options.html"
+}

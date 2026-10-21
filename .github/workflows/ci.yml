@@ -1,0 +1,28 @@
+name: Test and package
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install chromium --no-shell
+      - run: npm run test:browser
+      - run: npm run release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rejs-release
+          path: releases/*
+          if-no-files-found: error

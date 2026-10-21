@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>ReJS · 规则管理</title><link rel="stylesheet" href="style.css"></head><body><main>
+<h1>ReJS <span class="muted">/ 项目管理 · v1.0.0</span></h1><p>先创建项目，再为项目添加一条或多条替换规则。</p>
+<section class="card"><h2>我的项目</h2><form id="createProject" class="row"><input id="projectName" required maxlength="100" placeholder="输入新项目名称" aria-label="新项目名称"><button class="primary">＋ 新建项目</button></form><div id="projects"></div></section>
+<p id="projectMessage" class="status" role="status"></p>
+<div id="projectDetail" hidden>
+<section class="card"><div class="row"><h2 id="projectTitle"></h2><button id="renameProject">重命名项目</button><button id="deleteProject">删除项目</button></div><p class="muted">项目内的规则按顺序匹配，第一条命中生效。</p><div class="row"><h2>项目规则</h2><button id="new">＋ 新建规则</button></div><div id="rules"></div></section>
+<section class="card" id="ruleEditor" hidden><h2 id="heading">新建规则</h2><form id="editor">
+<label>规则名称<input id="name" required maxlength="100" placeholder="例如：替换 demo.js"></label>
+<label>匹配方式<select id="matchMode"><option value="auto">自动：完整 URL 精确匹配，其他输入按正则</option><option value="exact">完整 URL（精确匹配）</option><option value="regex">正则表达式（JavaScript）</option></select></label>
+<label>URL 或正则<input id="pattern" required placeholder="https://www.example.com/demo.js?v=123"></label>
+<p class="muted">直接粘贴完整 URL 请选“自动”或“完整 URL”，参数也需相同。需要通配请选“正则”，不填两侧 /。旧规则保持正则模式，可在这里切换。</p>
+<div class="row"><label><input id="ignoreCase" type="checkbox"> 忽略大小写</label><label><input id="enabled" type="checkbox" checked> 启用规则</label></div>
+<label>请求范围<select id="scope"><option value="Script">仅 Script 请求</option><option value="all">Script + Fetch/XHR（仅 GET / HEAD）</option></select></label>
+<label>导入本地 JS（UTF-8，最多 2 MB）<input id="file" type="file" accept=".js,.mjs,.txt,text/javascript"></label><div id="filename" class="muted">也可以直接粘贴或编辑下方内容。导入后不会自动同步磁盘修改。</div>
+<label>替换内容<textarea id="content" spellcheck="false" placeholder="console.log('已替换');"></textarea></label>
+<label>测试 URL<input id="testUrl" placeholder="https://www.example.com/demo.js?v=123"></label>
+<div class="row"><button type="button" id="test">测试匹配</button><button class="primary" type="submit">保存规则</button></div>
+</form><p id="message" class="status" role="status"></p></section></div>
+<p class="muted">保存后回到目标网页，点击插件图标启用并刷新。调试接口在原 URL 下替换响应并返回 200。启用时浏览器会显示调试提示，关闭提示会停止替换；SRI 校验仍然有效。</p>
+</main><script type="module" src="options.js"></script></body></html>
