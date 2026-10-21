@@ -84,5 +84,3 @@ npm run test:browser
 ## 开源与贡献
 
 采用 [MIT License](LICENSE)。开发、测试和打包流程见 [CONTRIBUTING.md](CONTRIBUTING.md)。GitHub Actions 会执行测试并生成可下载的构建产物，不自动发布到扩展商店。
-
-项目使用原生扩展 API 独立实现，设计讨论参考了 ReRes、GoRes 和 Netify；仓库不包含这些项目的研究副本或第三方站点诊断脚本。
